@@ -24,7 +24,9 @@ public class PokemonsViewModel extends AndroidViewModel {
         //Recuperamos el LiveData de todos los pokemons
         mAllPokemons=mRepository.getPokemons();
         // estadoRecycler=new Bundle();
+
     }
+
     //trae los pokemon de la webApi que hemos recuperado
     public LiveData<List<Pokemon>> getAllPokemons()
     {
@@ -40,5 +42,6 @@ public class PokemonsViewModel extends AndroidViewModel {
     public void delete(Pokemon pokemon) {
         mRepository.delete(pokemon);
     }
+
 
 }

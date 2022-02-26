@@ -94,10 +94,11 @@ public class NetworkService {
                     pokemonRespuestaApi = response.body();
                     Log.d(TAG, "Pokemons desde offset: " +
                             pokemonRespuestaApi.getUriSiguientes());
+                    if (pokemonRespuestaApi.getUriSiguientes() != "https://pokeapi.co/api/v2/pokemon?offset=920&limit=20"){
                     //añadimos al final los nuevos pokemon
                     listaPokemonApi.addAll(pokemonRespuestaApi.getListaPokemon());
                     //actualizamos el LiveData para que reaccione el observador
-                    listaPokemonApiLiveData.setValue(listaPokemonApi);
+                    listaPokemonApiLiveData.setValue(listaPokemonApi);}
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }

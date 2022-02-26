@@ -6,9 +6,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -22,11 +24,13 @@ import net.iesseveroochoa.sebastiancardonahenao.practica6.ui.adapters.PokemonAda
 import net.iesseveroochoa.sebastiancardonahenao.practica6.ui.favoritos.FavoritosViewModel;
 
 import java.util.Date;
+import java.util.List;
 
 public class PokemonsFragment extends Fragment {
 
     private FragmentPokemonsBinding binding;
     private RecyclerView rvPokemons;
+    private ProgressBar pbCargandoDatos;
     private PokemonAdapter adapter;
     private PokemonsViewModel pokemonsViewModel;
 
@@ -38,19 +42,20 @@ public class PokemonsFragment extends Fragment {
         binding = FragmentPokemonsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        pbCargandoDatos = binding.pbCargandoDatos;
         rvPokemons = binding.rvPokemons;
         adapter = new PokemonAdapter();
         rvPokemons.setAdapter(adapter);
         rvPokemons.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPokemons.setBackgroundColor(Color.GREEN);
 
-
          pokemonsViewModel.getAllPokemons().observe(getViewLifecycleOwner(), listaPokemon -> {
             adapter.setListaPokemon(listaPokemon);
+            onChanged(listaPokemon);
          });
 
          definirEventoSwiper();
-        defineDetectarFinRecycler();
+         defineDetectarFinRecycler();
 
         return root;
     }
@@ -106,12 +111,17 @@ public class PokemonsFragment extends Fragment {
                 //de esta forma sabemos si llega al final
                 if ((!recyclerView.canScrollVertically(1)) && (newState == RecyclerView.SCROLL_STATE_IDLE)) {
                     Log.v("scroll", "fin recyclerview");
-                    // pbCargandoDatos.setVisibility(View.VISIBLE);
+                    pbCargandoDatos.setVisibility(View.VISIBLE);
                     //recuperamos los 20 siguientes pokemon eso hara que se active el observador
                     pokemonsViewModel.getNextPokemon();
                 }
-
             }
         });
     }
+    public void onChanged(@Nullable List<Pokemon> listaPokemon) {
+        adapter.setListaPokemon(listaPokemon);
+        pbCargandoDatos.setVisibility(View.INVISIBLE);
+    }
+
+
 }

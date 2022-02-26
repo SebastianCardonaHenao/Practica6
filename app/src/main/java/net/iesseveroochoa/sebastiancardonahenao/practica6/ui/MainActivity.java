@@ -7,6 +7,7 @@ import android.view.Menu;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.iesseveroochoa.sebastiancardonahenao.practica6.R;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.ActivityMainBinding;
+import net.iesseveroochoa.sebastiancardonahenao.practica6.model.Pokemon;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
