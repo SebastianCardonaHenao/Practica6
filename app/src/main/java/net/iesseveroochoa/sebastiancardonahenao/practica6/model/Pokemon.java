@@ -10,6 +10,8 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -17,6 +19,7 @@ import java.util.Locale;
 @Entity(tableName = Pokemon.TABLE_NAME,
         indices = {@Index(value = {Pokemon.NOMBRE},unique = true)})
 public class Pokemon implements Parcelable {
+
     public static final String TABLE_NAME="pokemon";
     public static final String ID= BaseColumns._ID;
     public static final String NOMBRE="nombre";
@@ -31,7 +34,7 @@ public class Pokemon implements Parcelable {
     private int id;
     @ColumnInfo(name = NOMBRE)
     @NonNull
-    //@SerializedName("name")//retrofit
+    @SerializedName("name")//retrofit
     private String nombre;
     @ColumnInfo(name = URL)
     @NonNull
@@ -80,6 +83,9 @@ public class Pokemon implements Parcelable {
     public void setFechaCompra(@NonNull Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
+
+
+
 // OWN METHODS
 
     public String getFechaCompraFormatoLocal(){
@@ -139,4 +145,10 @@ public class Pokemon implements Parcelable {
             return new Pokemon[size];
         }
     };
+
+    public String getUrlImagen() {
+        String url = getUrl();
+        String[] pokemonIndex = url.split("/");
+        return (urlIMAGEN+pokemonIndex[pokemonIndex.length-1] +".png");
+    }
 }

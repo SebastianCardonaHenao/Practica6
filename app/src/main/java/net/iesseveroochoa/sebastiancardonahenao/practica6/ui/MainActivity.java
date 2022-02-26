@@ -1,4 +1,4 @@
-package net.iesseveroochoa.sebastiancardonahenao.practica6.utils;
+package net.iesseveroochoa.sebastiancardonahenao.practica6.ui;
 
 import android.os.Bundle;
 import android.view.View;
