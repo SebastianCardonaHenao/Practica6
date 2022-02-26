@@ -1,4 +1,4 @@
-package net.iesseveroochoa.sebastiancardonahenao.practica6.ui.home;
+package net.iesseveroochoa.sebastiancardonahenao.practica6.ui.pokemon;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.FragmentHomeBinding;
+import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.FragmentPokemonsBinding;
 
-public class HomeFragment extends Fragment {
+public class PokemonsFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentPokemonsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        PokemonsViewModel pokemonsViewModel =
+                new ViewModelProvider(this).get(PokemonsViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentPokemonsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        pokemonsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
