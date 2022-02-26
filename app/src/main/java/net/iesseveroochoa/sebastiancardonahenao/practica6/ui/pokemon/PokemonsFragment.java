@@ -13,13 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import net.iesseveroochoa.sebastiancardonahenao.practica6.R;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.FragmentFavoritosBinding;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.FragmentPokemonsBinding;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.model.Pokemon;
+import net.iesseveroochoa.sebastiancardonahenao.practica6.ui.VerPokemonFragment;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.ui.adapters.PokemonAdapter;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.ui.favoritos.FavoritosViewModel;
 
@@ -86,7 +89,17 @@ public class PokemonsFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         //lo asociamos a nuestro reciclerView
         itemTouchHelper.attachToRecyclerView(rvPokemons);
+        adapter.setOnPokemonClickListener(this::showPokemon);
 
+    }
+
+    private void showPokemon(Pokemon pokemon) {
+        Bundle argumentosBundle=new Bundle();
+        argumentosBundle.putParcelable(VerPokemonFragment.ARG_POKEMON,pokemon);
+        //llamamos a la acción con el id del Navigation y el bundle
+
+        NavHostFragment.findNavController(PokemonsFragment.this).navigate(R.id
+                        .verPokemon,argumentosBundle);
     }
 
     @Override

@@ -7,9 +7,12 @@
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/fragment_favoritos.xml" value="0.25" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/fragment_pokemons.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/fragment_ver_pokemon.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/item_pokemon.xml" value="0.25" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
         <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/menu/main.xml" value="0.1" />
+        <entry key="..\:/Users/Sebastian/AndroidStudioProjects/Practica6/app/src/main/res/xml/root_preferences.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

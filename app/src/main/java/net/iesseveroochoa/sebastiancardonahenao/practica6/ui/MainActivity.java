@@ -1,13 +1,12 @@
 package net.iesseveroochoa.sebastiancardonahenao.practica6.ui;
 
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,9 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.iesseveroochoa.sebastiancardonahenao.practica6.R;
 import net.iesseveroochoa.sebastiancardonahenao.practica6.databinding.ActivityMainBinding;
-import net.iesseveroochoa.sebastiancardonahenao.practica6.model.Pokemon;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,5 +62,22 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //si es una accion que se encuentre en el Navigation abre el fragment asociado
+        if (NavigationUI.onNavDestinationSelected(item,
+                Navigation.findNavController(this, R.id. nav_host_fragment_content_main)))
+            return true;
+        else {//para otras opciones de menú
+            switch (item.getItemId()){
+                case R.id.action_prueba:
+                    Toast.makeText(this,"Prueba menu",Toast.LENGTH_LONG).show();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
     }
 }

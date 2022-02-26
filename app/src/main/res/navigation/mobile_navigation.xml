@@ -9,12 +9,29 @@
         android:id="@+id/nav_home"
         android:name="net.iesseveroochoa.sebastiancardonahenao.practica6.ui.pokemon.PokemonsFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_pokemons" />
+        tools:layout="@layout/fragment_pokemons" >
+        <action
+            android:id="@+id/action_nav_home_to_verPokemon"
+            app:destination="@id/verPokemon"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_favoritos"
         android:name="net.iesseveroochoa.sebastiancardonahenao.practica6.ui.favoritos.FavoritosFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_favoritos" />
+    <fragment
+        android:id="@+id/action_settings"
+        android:name="net.iesseveroochoa.sebastiancardonahenao.practica6.ui.PreferenciasFragment"
+        android:label="Preferencias" />
+    <fragment
+        android:id="@+id/verPokemon"
+        android:name="net.iesseveroochoa.sebastiancardonahenao.practica6.ui.VerPokemonFragment"
+        android:label="fragment_ver_pokemon"
+        tools:layout="@layout/fragment_ver_pokemon" />
 
 </navigation>

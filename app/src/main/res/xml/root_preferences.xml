@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditTextPreference
+        app:defaultValue="20"
+        app:key="num_pokemons"
+        app:singleLine="true"
+        app:summary="Indica el número de Pokemons por solicitud GET"
+        app:title="Numero Pokemons" />
+</PreferenceScreen>
